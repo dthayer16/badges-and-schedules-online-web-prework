@@ -10,14 +10,15 @@ def batch_badge_creator (names)
   array
 end
 
-def assign_rooms (speakers)
+def assign_rooms(names)
   array = []
-  speakers.each_with_index do {|item, index| speakers[item] = index}
-  array << badge_maker(item, index)
-end
-  array
+  attendees.each_with_index.map do |name, index|
+    "Hello, #{name}! You'll be assigned to room #{index+1}!"
+  end
 end
 
-def printer
-
+def printer (speakers)
+  batch_badge_creator(speakers).each do |badge|
+  puts badge
+  end
 end
